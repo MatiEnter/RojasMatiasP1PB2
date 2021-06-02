@@ -30,7 +30,8 @@ class Biblioteca_test {
 	@Test
 	public void queSePuedaAgregarUnLibroALaBiblioteca() {
 		Biblioteca biblioteca_nacional = new Biblioteca("Biblioteca Nacional");
-	
+		
+		
 		Libro historia = new Libro_historia(222, "Historia Mundial", "Felipe Pigna", true);
 		assertNotNull(biblioteca_nacional.agregarLibro(historia));
 		
@@ -59,12 +60,31 @@ class Biblioteca_test {
 	}
 	
 	@Test
+	public void queLaBibliotecaPuedaImprimirLosLibros() {
+		Biblioteca biblioteca_nacional = new Biblioteca("Biblioteca Nacional");
+		Libro historia = new Libro_historia(222, "Historia Mundial", "Felipe Pigna", true);
+		assertTrue(biblioteca_nacional.imprimirUnLibro(historia));
+	}
+	
+	@Test
 	public void quesePuedaCrearUnEstudiante() {
 		Estudiante estudiante = new Estudiante(40512642,"Rojas", "Matias Leonel");
 	}
 	
 	@Test
 	public void queSePuedaPrestarUnLibro() {
+		Libro matematica = new Libro_Matematica(444, "Como aprender matrices y no morir en el intento", "Herrera Juana", false);
+		Estudiante estudiante = new Estudiante(40512642,"Rojas", "Matias Leonel");
+		assertTrue(estudiante.prestarLibroAEstudiante(matematica));
+	}
+	
+	@Test
+	public void queNosePuedaPrestarUnLibroQueYaTengaOtroAlumno() {
+		Libro matematica = new Libro_Matematica(444, "Como aprender matrices y no morir en el intento", "Herrera Juana", false);
+		Estudiante estudiante = new Estudiante(40512642,"Rojas", "Matias Leonel");
+		estudiante.prestarLibroAEstudiante(matematica);
+		
+		//no llegue a terminar este test
 		
 	}
 	

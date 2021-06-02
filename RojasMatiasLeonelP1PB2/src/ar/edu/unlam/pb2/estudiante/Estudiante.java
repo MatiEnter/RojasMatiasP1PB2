@@ -9,7 +9,8 @@ public class Estudiante {
 	private Integer dni_estudiante;
 	private String apellido_estudiante;
 	private String nombre_estudiante;
-	private ArrayList<Estudiante> registro_estudiantes = new ArrayList<Estudiante>();
+	private ArrayList<Libro> prestamo_libros = new ArrayList<Libro>();
+	private int libros_prestados;
 	
 	public Estudiante(Integer dni_estudiante,String apellido_estudiante,String nombre_estudiante) {
 		this.dni_estudiante=dni_estudiante;
@@ -17,5 +18,9 @@ public class Estudiante {
 		this.nombre_estudiante=nombre_estudiante;
 	}
 	
-	
+	public Boolean prestarLibroAEstudiante(Libro Libro) {
+		this.libros_prestados++;
+		return this.prestamo_libros.add(Libro);
+	}
+
 }
